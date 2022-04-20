@@ -75,6 +75,11 @@ fi
 
 DELTA_ROOT="${PWD}"
 
+if ! managepatches.sh ; then
+	echo "Unable to apply patches" >&2
+	exit 16
+fi
+
 cd "${ZLIB_ROOT}/${ZLIB_VRM}"
 
 if [ "${ZLIB_VRM}" = "zlib" ]; then
