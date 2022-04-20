@@ -89,8 +89,8 @@ fi
 # Setup the configuration so that the system search path looks in lib and include ahead of the standard C libraries
 #
 export CONFIG_OPTS=""
-export CC=c99
-export CFLAGS="-qlanglvl=extc1x -qascii -D_OPEN_THREADS=3 -D_UNIX03_SOURCE=1 -DNSIG=39"
+export CC=xlclang
+export CFLAGS="-qascii -Wc,lp64 -Wl,lp64 -D_OPEN_THREADS=3 -D_UNIX03_SOURCE=1 -DNSIG=39"
 ./configure --prefix="${ZLIB_PROD}"
 if [ $? -gt 0 ]; then
 	echo "Configure of ZLIB tree failed." >&2
