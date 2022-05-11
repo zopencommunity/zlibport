@@ -12,13 +12,14 @@ else
 
 	export ZLIB_VRM="zlib-1.2.12"
 	export ZLIB_ROOT="${PWD}"
-	
-        export PATH="${ZLIB_ROOT}/bin:$PATH"
+	if [ "${MAKE_ROOT}x" = "x" ]; then
+		export MAKE_ROOT="${HOME}/zot/boot/make"
+	fi	
+        export PATH="${MAKE_ROOT}/bin:${ZLIB_ROOT}/bin:$PATH"
 
 	export ZLIB_MIRROR="https://zlib.net"
 	export ZLIB_CERT="${ZLIB_ROOT}/zlib.cert"
 	export ZLIB_URL="https://github.com/madler/zlib.git"
 
-	fsroot=$( basename $HOME )                         
-	export ZLIB_PROD="/${fsroot}/zlibprod"     
+	export ZLIB_PROD="${HOME}/zot/prod/zlib"     
 fi
