@@ -1,25 +1,17 @@
 #!/bin/sh
-#set -x
-
+#
+# Set up environment variables for general build tool to operate
+#
 if ! [ -f ./buildenv ]; then
 	echo "Need to source from the buildenv directory" >&2
-else
-	export _BPXK_AUTOCVT="ON"
-	export _CEE_RUNOPTS="FILETAG(AUTOCVT,AUTOTAG),POSIX(ON),TERMTHDACT(MSG)"
-	export _TAG_REDIR_ERR="txt"
-	export _TAG_REDIR_IN="txt"
-	export _TAG_REDIR_OUT="txt"
-
-	export ZLIB_VRM="zlib-1.2.12"
-	export ZLIB_ROOT="${PWD}"
-	if [ "${MAKE_ROOT}x" = "x" ]; then
-		export MAKE_ROOT="${HOME}/zot/boot/make"
-	fi	
-        export PATH="${MAKE_ROOT}/bin:${ZLIB_ROOT}/bin:$PATH"
-
-	export ZLIB_MIRROR="https://zlib.net"
-	export ZLIB_CERT="${ZLIB_ROOT}/zlib.cert"
-	export ZLIB_URL="https://github.com/madler/zlib.git"
-
-	export ZLIB_PROD="${HOME}/zot/prod/zlib"     
+	return 0
 fi
+
+export ZOPEN_ROOT="${PWD}"
+export ZOPEN_TYPE="GIT"
+
+export ZOPEN_GIT_URL="https://github.com/madler/zlib.git"
+export ZOPEN_GIT_DEPS="git make"
+export ZOPEN_CONFIGURE_MINIMAL=Y     
+export ZOPEN_EXTRA_CFLAGS="-std=c11"
+export ZOPEN_MAKE_OPTS='libz.a'
