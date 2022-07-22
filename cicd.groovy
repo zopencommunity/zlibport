@@ -10,6 +10,6 @@ node('linux')
         }
 
         stage('Build') {
-                build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/ZOSOpenTools/zlibport.git'), string(name: 'PORT_DESCRIPTION', value: 'The zlib command provides access to the compression and check-summing facilities of the Zlib library )]
+                build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/ZOSOpenTools/zlibport.git'), string(name: 'PORT_DESCRIPTION', value: 'The zlib command provides access to the compression and check-summing facilities of the Zlib library' )]
         }
 }
