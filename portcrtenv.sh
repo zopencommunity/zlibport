@@ -8,5 +8,6 @@ if ! [ -f ./.env ]; then
 fi
 mydir="\${PWD}"
 export PATH="\${mydir}/bin:\$PATH"
+export ZLIB_HOME="${install_dir}"
 zz
 exit 0
