@@ -15,3 +15,4 @@ export ZOPEN_GIT_DEPS="git make"
 export ZOPEN_CONFIGURE_MINIMAL=Y     
 export ZOPEN_EXTRA_CFLAGS="-std=c11"
 export ZOPEN_MAKE_OPTS='libz.a'
+export ZOPEN_CHECK='skip'
