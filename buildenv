@@ -1,11 +1,11 @@
 #
 # Set up environment variables for general build tool to operate
 #
-export ZOPEN_TYPE="GIT"
+export ZOPEN_BUILD_LINE="DEV"
 
-export ZOPEN_GIT_URL="https://github.com/madler/zlib.git"
-export ZOPEN_GIT_DEPS="git make zoslib"
-export ZOPEN_GIT_TAG="v1.2.13"
+export ZOPEN_DEV_URL="https://github.com/madler/zlib.git"
+export ZOPEN_DEV_DEPS="git make zoslib"
+export ZOPEN_DEV_TAG="v1.2.13"
 export ZOPEN_CONFIGURE_MINIMAL=Y     
 export ZOPEN_EXTRA_CONFIGURE_OPTS="--static"
 export ZOPEN_MAKE_OPTS='libz.a'
@@ -16,8 +16,8 @@ zopen_check_results()
   dir="$1"
   pfx="$2"
   chk="$1/$2_check.log"
-  totalTests=$(egrep "\*\*\* zlib " $chk | wc -l)
-  passed=$(egrep "test OK" $chk | wc -l) 
+  totalTests=$(grep -E "\*\*\* zlib " $chk | wc -l)
+  passed=$(grep -E "test OK" $chk | wc -l) 
   failures=$((totalTests-passed))
 
 # Echo the following information to guage build health
@@ -26,4 +26,9 @@ actualFailures:$failures
 totalTests:$totalTests
 expectedFailures:0
 TEST
+}
+
+zopen_get_version()
+{
+  grep Version zlib.3 | awk ' { print $2; }'
 }
