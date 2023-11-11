@@ -1,15 +1,14 @@
-#
-# Set up environment variables for general build tool to operate
-#
-export ZOPEN_BUILD_LINE="DEV" # Default build line
+# bump: zlib-version /ZLIB_VERSION="(.*)"/ https://github.com/madler/zlib.git|semver:*
+ZLIB_VERSION="1.2.13"
 
+
+export ZOPEN_BUILD_LINE="DEV" # Default build line
 export ZOPEN_STABLE_URL="https://github.com/madler/zlib.git"
 export ZOPEN_STABLE_DEPS="make zoslib"
-export ZOPEN_STABLE_TAG="v1.2.13"
+export ZOPEN_STABLE_TAG="v${ZLIB_VERSION}"
 
 export ZOPEN_DEV_URL="https://github.com/madler/zlib.git"
 export ZOPEN_DEV_DEPS="make zoslib"
-
 
 export ZOPEN_CONFIGURE_MINIMAL=Y     
 export ZOPEN_EXTRA_CONFIGURE_OPTS="--static"
