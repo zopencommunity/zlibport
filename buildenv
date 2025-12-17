@@ -1,8 +1,7 @@
 # bump: zlib-version /ZLIB_VERSION="(.*)"/ https://github.com/madler/zlib.git|semver:*
 ZLIB_VERSION="1.3.1"
 
-
-export ZOPEN_BUILD_LINE="DEV" # Default build line
+export ZOPEN_BUILD_LINE="STABLE" # Default build line
 export ZOPEN_STABLE_URL="https://github.com/madler/zlib.git"
 export ZOPEN_STABLE_DEPS="make zoslib"
 export ZOPEN_STABLE_TAG="v${ZLIB_VERSION}"
@@ -17,6 +16,12 @@ export ZOPEN_COMP=CLANG
 
 export ZOPEN_EXTRA_CFLAGS="-mzos-target=zosv2r5 -march=z13"
 export ZOPEN_SYSTEM_PREREQS="zos25"
+
+zopen_pre_patch()
+{
+  export CFLAGS="$CFLAGS $CPPFLAGS"
+  export LDFLAGS="$LDFLAGS $LIBS"
+}
 
 zopen_check_results()
 {
