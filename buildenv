@@ -10,7 +10,7 @@ export ZOPEN_DEV_URL="https://github.com/madler/zlib.git"
 export ZOPEN_DEV_DEPS="make zoslib"
 
 export ZOPEN_CONFIGURE_MINIMAL=Y     
-export ZOPEN_EXTRA_CONFIGURE_OPTS="--static"
+export ZOPEN_EXTRA_CONFIGURE_OPTS="--static --disable-crcvx"
 export ZOPEN_MAKE_OPTS='libz.a'
 export ZOPEN_COMP=CLANG
 
