@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/zopencommunity/zlibport/actions/workflows/codeql.yml/badge.svg)](https://github.com/zopencommunity/zlibport/actions/workflows/codeql.yml)
+
 [![Automatic version updates](https://github.com/ZOSOpenTools/zlibport/actions/workflows/bump.yml/badge.svg)](https://github.com/ZOSOpenTools/zlibport/actions/workflows/bump.yml)
 
 # Zlib
